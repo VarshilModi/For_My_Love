@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown - For My Love</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Countdown-specific styles */
+    .countdown-section {
+      padding: 100px 0 50px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .countdown-container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .countdown-title {
+      margin-bottom: 3rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .countdown-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 3rem;
+      color: var(--color-text-secondary);
+    }
+
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit {
+      background: rgba(26, 26, 46, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 1.5rem;
+      min-width: 120px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .countdown-value {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-accent-light);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(233, 69, 132, 0.5);
+    }
+
+    .countdown-label {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-text-secondary);
+    }
+
+    .countdown-message {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(233, 69, 132, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(233, 69, 132, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .countdown-unit {
+        min-width: 90px;
+        padding: 1rem;
+      }
+
+      .countdown-value {
+        font-size: 2rem;
+      }
+
+      .countdown-label {
+        font-size: 0.8rem;
+      }
+
+      .countdown-timer {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-unit {
+        min-width: 70px;
+        padding: 0.8rem;
+      }
+
+      .countdown-value {
+        font-size: 1.8rem;
+      }
+
+      .countdown-label {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">For My Love</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="story.html" class="nav-link">Our Story</a>
+        <a href="messages.html" class="nav-link">Letters</a>
+        <a href="countdown.html" class="nav-link active">Countdown</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Countdown Section -->
+  <section class="countdown-section">
+    <canvas id="hearts-canvas"></canvas>
+
+    <div class="countdown-container" data-target-date="2025-12-04T23:59:59">
+      <h2 class="section-title countdown-title">Counting The Moments</h2>
+      <p class="countdown-subtitle">Until we're together again</p>
+
+      <div class="countdown-timer">
+        <div class="countdown-unit">
+          <div id="days" class="countdown-value">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-unit">
+          <div id="hours" class="countdown-value">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-unit">
+          <div id="minutes" class="countdown-value">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-unit">
+          <div id="seconds" class="countdown-value">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <div id="countdown-message" class="countdown-message">
+        Every second brings me closer to you
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with 💙 only for you</p>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="story.html">Our Story</a>
+        <a href="messages.html">Letters</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <div class="music-player">
+    <button id="music-toggle" class="music-btn">🎵</button>
+    <audio id="bg-music" loop>
+      <source src="assets/images/music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition" class="page-transition"></div>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Additional sparkle animation for countdown page
+    document.addEventListener('DOMContentLoaded', function () {
+      if (document.querySelector('.countdown-section')) {
+        createSparkles();
+      }
+    });
+
+    function createSparkles() {
+      const section = document.querySelector('.countdown-section');
+      if (!section) return;
+
+      for (let i = 0; i < 30; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        section.appendChild(sparkle);
+
+        // Random position
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+
+        sparkle.style.left = `${left}%`;
+        sparkle.style.top = `${top}%`;
+
+        // Animate sparkle
+        animateSparkle(sparkle);
+      }
+    }
+
+    function animateSparkle(sparkle) {
+      const duration = Math.random() * 3 + 2;
+      const delay = Math.random() * 5;
+
+      sparkle.style.animation = `
+                sparkle-fade ${duration}s ease-in-out ${delay}s infinite
+            `;
+
+      // Add keyframes dynamically
+      if (!document.querySelector('#sparkle-keyframes')) {
+        const style = document.createElement('style');
+        style.id = 'sparkle-keyframes';
+        style.textContent = `
+                    @keyframes sparkle-fade {
+                        0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+                        50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+                    }
+                `;
+        document.head.appendChild(style);
+      }
+    }
+  </script>
+</body>
+
+</html>

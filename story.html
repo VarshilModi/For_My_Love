@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story - For My Love</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Story-specific styles */
+    .story-section {
+      padding: 100px 0 50px;
+      min-height: 100vh;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: var(--gradient-accent);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .timeline-item.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: calc(50% + 30px);
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      padding-left: calc(50% + 30px);
+    }
+
+    .timeline-content {
+      position: relative;
+      padding: 2rem;
+      background: rgba(26, 26, 46, 0.7);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 20px;
+      height: 20px;
+      background: rgba(26, 26, 46, 0.7);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      width: 20px;
+      height: 20px;
+      background: rgba(26, 26, 46, 0.7);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--gradient-accent);
+      color: white;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .timeline-image {
+      width: 100%;
+      border-radius: 10px;
+      margin: 1rem 0;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline-icon {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-medium);
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon {
+      right: -20px;
+      top: 30px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-icon {
+      left: -20px;
+      top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        padding-left: 70px !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after,
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: -10px;
+        right: auto;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-icon,
+      .timeline-item:nth-child(even) .timeline-icon {
+        left: 11px;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">For My Love</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="story.html" class="nav-link active">Our Story</a>
+        <a href="messages.html" class="nav-link">Letters</a>
+        <a href="countdown.html" class="nav-link">Countdown</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <h2 class="section-title">Our Love Story</h2>
+      <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">Every chapter of our story is my
+        favorite</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">💑</div>
+          <div class="timeline-content">
+            <span class="timeline-date">June 12, 2020</span>
+            <h3>The Day We Met</h3>
+            <img src="assets/images/placeholder1.jpg" alt="The day we met" class="timeline-image">
+            <p>I still remember the way you smiled that day. It was as if the whole world faded away and all I could see
+              was you. Little did I know that this chance encounter would change my life forever.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">🍽️</div>
+          <div class="timeline-content">
+            <span class="timeline-date">July 3, 2020</span>
+            <h3>Our First Date</h3>
+            <img src="assets/images/placeholder2.jpg" alt="Our first date" class="timeline-image">
+            <p>Nervous laughter, stolen glances, and conversations that flowed like we'd known each other for years. I
+              knew by the end of that evening that I wanted to spend many more nights like this with you.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">⭐</div>
+          <div class="timeline-content">
+            <span class="timeline-date">September 15, 2020</span>
+            <h3>Favorite Memory</h3>
+            <img src="assets/images/placeholder3.jpg" alt="Favorite memory" class="timeline-image">
+            <p>That night under the stars when we talked until sunrise. You shared your dreams and I shared mine, and we
+              discovered how perfectly they aligned. My favorite memory among countless precious ones.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">💍</div>
+          <div class="timeline-content">
+            <span class="timeline-date">December 24, 2022</span>
+            <h3>The Promise</h3>
+            <img src="assets/images/placeholder4.jpg" alt="The promise" class="timeline-image">
+            <p>On that magical Christmas Eve, I knew I wanted to spend the rest of my life with you. The way your eyes
+              sparkled when you said yes is a moment I will cherish forever.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">🏡</div>
+          <div class="timeline-content">
+            <span class="timeline-date">Today</span>
+            <h3>Our Journey Continues</h3>
+            <img src="assets/images/placeholder5.jpg" alt="Our journey" class="timeline-image">
+            <p>Every day with you is a new adventure. Through challenges and triumphs, our love only grows stronger. I
+              fall more in love with you with each passing day.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-icon">🌅</div>
+          <div class="timeline-content">
+            <span class="timeline-date">The Future</span>
+            <h3>Forever With You</h3>
+            <img src="assets/images/placeholder6.jpg" alt="Our future" class="timeline-image">
+            <p>I look forward to building a lifetime of memories with you. Growing old together, creating a home filled
+              with love and laughter, and watching our dreams become reality, side by side.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with 💙 only for you</p>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="story.html">Our Story</a>
+        <a href="messages.html">Letters</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <div class="music-player">
+    <button id="music-toggle" class="music-btn">🎵</button>
+    <audio id="bg-music" loop>
+      <source src="assets/images/music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition" class="page-transition"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

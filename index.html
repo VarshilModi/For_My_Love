@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">For My Love</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="story.html" class="nav-link">Our Story</a>
+        <a href="messages.html" class="nav-link">Letters</a>
+        <a href="countdown.html" class="nav-link">Countdown</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <canvas id="hearts-canvas"></canvas>
+    <div class="hero-content">
+      <h1 class="hero-title">For My Love <span class="heart-pulse">💖</span></h1>
+      <p class="hero-subtitle">"You are my today and all of my tomorrows."</p>
+      <a href="story.html" class="cta-button">Enter Our Story</a>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Summary Sections -->
+  <section class="summary-section">
+    <div class="container">
+      <h2 class="section-title">Our Journey Together</h2>
+      <div class="cards-grid">
+        <div class="summary-card">
+          <div class="card-icon">📸</div>
+          <h3>Our Gallery</h3>
+          <p>Precious moments captured in time, each telling a story of our love.</p>
+          <a href="gallery.html" class="card-link">View Memories</a>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">💌</div>
+          <h3>Love Letters</h3>
+          <p>Special messages for special moments, to open when you need me most.</p>
+          <a href="messages.html" class="card-link">Read Letters</a>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">⏳</div>
+          <h3>Countdown</h3>
+          <p>Counting the moments until we're together again in each other's arms.</p>
+          <a href="countdown.html" class="card-link">See Countdown</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with 💙 only for you</p>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="story.html">Our Story</a>
+        <a href="messages.html">Letters</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <div class="music-player">
+    <button id="music-toggle" class="music-btn">🎵</button>
+    <audio id="bg-music" loop>
+      <source src="assets/images/music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition" class="page-transition"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>

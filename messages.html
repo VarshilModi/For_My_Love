@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letters - For My Love</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Messages-specific styles */
+    .messages-section {
+      padding: 100px 0 50px;
+      min-height: 100vh;
+    }
+
+    .message-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .message-card {
+      position: relative;
+      height: 400px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .message-card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-front {
+      background: rgba(26, 26, 46, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .card-back {
+      background: rgba(233, 69, 132, 0.1);
+      backdrop-filter: blur(10px);
+      transform: rotateY(180deg);
+      overflow-y: auto;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--color-accent-light);
+    }
+
+    .card-instruction {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .card-message {
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .audio-message {
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 1rem;
+      border-radius: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .message-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .message-card {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">For My Love</a>
+      </div>
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="story.html" class="nav-link">Our Story</a>
+        <a href="messages.html" class="nav-link active">Letters</a>
+        <a href="countdown.html" class="nav-link">Countdown</a>
+      </div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Messages Section -->
+  <section class="messages-section">
+    <div class="container">
+      <h2 class="section-title">Open When...</h2>
+      <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem;">Special messages for special moments
+      </p>
+
+      <div class="message-cards">
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">😔</div>
+              <h3 class="card-title">Open when you miss me</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You Miss Me</h3>
+              <div class="card-message">
+                <p>My love, know that even when we're apart, you're always in my heart. I'm missing you too, and
+                  counting the moments until we're together again. Remember our last embrace and know that soon we'll
+                  create more beautiful memories together.</p>
+                <p>I love you more than words can express.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">😢</div>
+              <h3 class="card-title">Open when you're sad</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You're Sad</h3>
+              <div class="card-message">
+                <p>My dearest, I wish I could be there to wipe away your tears and hold you close. Remember that this
+                  difficult moment will pass, and I'm here with you in spirit. You are strong, you are loved, and you
+                  are never alone.</p>
+                <p>I've recorded a little message for you to listen to when you need to hear my voice.</p>
+                <div class="audio-message">
+                  <audio controls>
+                    <source src="assets/images/music.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">😄</div>
+              <h3 class="card-title">Open when you're happy</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You're Happy</h3>
+              <div class="card-message">
+                <p>I'm so delighted to see you happy! Your joy is my joy, and your smile lights up my world. Whatever
+                  wonderful thing has happened, I'm celebrating with you from wherever I am.</p>
+                <p>Take a moment to fully enjoy this happiness, and know that I'm smiling thinking of you being happy.
+                  Can't wait to hear all about what made you smile!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">🤗</div>
+              <h3 class="card-title">Open when you need a hug</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You Need a Hug</h3>
+              <div class="card-message">
+                <p>Sending you the warmest, tightest virtual hug right now! Imagine my arms around you, holding you
+                  close. Feel my love surrounding you, protecting you, comforting you.</p>
+                <p>I may not be there physically, but my love transcends distance. Save this hug for when you really
+                  need it, and know that a real one is coming your way soon!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">💭</div>
+              <h3 class="card-title">Open when you doubt us</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You Doubt Us</h3>
+              <div class="card-message">
+                <p>My love, our relationship is built on a foundation of trust, respect, and deep affection. Whatever
+                  doubts may be creeping in, remember all we've overcome together.</p>
+                <p>I choose you every day, and I will keep choosing you. We're a team, and together we can get through
+                  anything. Have faith in us, as I have faith in what we share.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="message-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-icon">🎉</div>
+              <h3 class="card-title">Open when you achieve something</h3>
+              <p class="card-instruction">Click to open</p>
+            </div>
+            <div class="card-back">
+              <h3>When You Achieve Something</h3>
+              <div class="card-message">
+                <p>I'm so incredibly proud of you! Your hard work, dedication, and talent never cease to amaze me. You
+                  deserve every bit of success that comes your way.</p>
+                <p>Celebrate this achievement fully - you've earned it! I can't wait to celebrate with you properly when
+                  we're together again. Know that I'm your biggest fan, always.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Made with 💙 only for you</p>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="story.html">Our Story</a>
+        <a href="messages.html">Letters</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <div class="music-player">
+    <button id="music-toggle" class="music-btn">🎵</button>
+    <audio id="bg-music" loop>
+      <source src="assets/images/music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Page Transition Overlay -->
+  <div id="page-transition" class="page-transition"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
